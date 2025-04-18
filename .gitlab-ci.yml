@@ -1,0 +1,33 @@
+stages:
+  - autotest
+  - deploy-report
+
+variables:
+  REPORT_DIR: playwright-report
+
+autotest:
+  stage: autotest
+  image: mcr.microsoft.com/playwright:v1.51.1-jammy
+  script:
+    - npm install
+    - npx playwright test
+  artifacts:
+    when: always
+    paths:
+      - test-results/
+      - $REPORT_DIR/
+    expire_in: 2 days
+
+pages:
+  stage: deploy-report
+  dependencies:
+    - autotest
+  script:
+    - mv $REPORT_DIR public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+  when: always
+  allow_failure: true
