@@ -1,9 +1,9 @@
 import {APIRequestContext} from '@playwright/test';
 
 export class BaseApi {
-	request: APIRequestContext;
+  protected request: APIRequestContext;
 
-	constructor(request: APIRequestContext) {
-		this.request = request;
-	}
+  constructor(request: APIRequestContext) {
+    this.request = request;
+  }
 }

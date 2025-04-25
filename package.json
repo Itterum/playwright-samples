@@ -2,6 +2,7 @@
   "name": "playwright-samples",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {},
   "keywords": [],
   "author": "",
@@ -10,7 +11,9 @@
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.14.1",
+    "openapi-fetch": "^0.13.5",
     "openapi-typescript": "^7.6.1",
+    "openapi-typescript-codegen": "^0.29.0",
     "prom-client": "^15.1.3"
   }
 }
